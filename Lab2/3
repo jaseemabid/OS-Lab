@@ -1,0 +1,9 @@
+#! /bin/bash
+
+# Custom shell.
+# Author : Jaseem Abid <jaseemabid@gmail.com>
+
+bash --rcfile <(
+echo " export PS1=' > '"
+echo " export PATH='$PATH:./:../ '"
+)

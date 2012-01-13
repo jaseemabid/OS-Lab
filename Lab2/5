@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#5) To read two words and a file name from command line and replace the occurrences of first
+#	word with the second word.
+ 
+# Author : Jaseem Abid <jaseemabid@gmail.com>
+
+old_pattern=$1
+new_pattern=$2
+
+if [ -f "$3" ]
+then file_name=$3
+else echo "File \"$3\" does not exist."
+fi
+
+sed -e "s/$old_pattern/$new_pattern/g" $file_name > temp
+mv temp $file_name

@@ -1,0 +1,53 @@
+#!/bin/bash
+
+#6) To implement following using select construct:
+#a. create a file (using touch)
+#b. rename a file
+#c. delete a file
+#d. copy file
+#The script should be menu driven.
+
+# Author : Jaseem Abid <jaseemabid@gmail.com>
+
+function create()
+{
+	echo "Enter the name of the file to be created : "
+	read name
+	touch $name
+}
+
+function rename()
+{
+	echo "Enter the name of the file you wish to rename : "
+	read n1
+	echo "Enter the new name of the file : "
+	read n2
+	mv $n1 $n2
+}
+
+function delete()
+{
+	echo "Enter the name of the file you wish to delete : "
+	read name
+	rm -i $name
+}
+
+function copy()
+{
+	echo "Enter the name of the file which you wish to make a copy of : "
+	read n1
+	find . -type f -name $n1 -exec cp {} "Copy of $n1" \;
+}
+
+select choice in create rename delete copy
+do
+	case $choice in
+   		create) create  	;;
+   		rename) rename   	;;
+   		delete) delete   	;;
+   		  copy) copy  	 	;;
+	esac
+	break
+done
+
+   

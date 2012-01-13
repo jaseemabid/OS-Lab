@@ -1,0 +1,90 @@
+#!/bin/bash
+
+# Calculator + factorial
+# Author : Jaseem Abid <jaseemabid@gmail.com>
+
+function add()
+{
+	echo "Enter the numbers to be added : "
+	read a
+	read b
+	let "s=$a+$b"
+	echo " "
+	echo "$a + $b =  $s"
+}
+function sub()
+{
+	echo "Enter the numbers to be subtracted : "
+	read a
+	read b
+	let "s=$a-$b"
+	echo " "
+	echo "$a - $b = $s"
+}
+function mul()
+{
+	echo "Enter the numbers to be multiplied : "
+	read a
+	read b
+	let "s=$a*$b"
+	echo " "
+	echo "$a * $b = $s"
+}
+function div()
+{
+	echo "Enter the numbers to be divided : "
+	read a
+	read b
+	if [ $b -ne 0 ]; then
+	let "s=$a/$b"
+	let "r=$a%$b"
+	echo " "
+	echo "$a / $b = $s $r/$b"
+	else
+	echo "Cannot divide by zero"
+	fi
+}
+
+function factorial()
+{
+	if [ $1 -gt 1 ]; then
+		i=`expr $1 - 1`
+		j=$(echo "$1 * $(factorial $i)" | bc )
+			echo $j
+	else
+		echo 1
+	fi
+}
+
+
+function fact()
+{
+	echo "Enter the number : "
+	read a
+	echo -e "\nFactorial of $a is : \c"
+	factorial $a
+}
+
+echo -e "\n\nCalculator\n"
+ch=0
+while [ "$ch" -ne 6 ];
+do
+	echo -e "\nEnter option 1 - 6\n"
+	echo "1) Add"
+	echo "2) Sub"
+	echo "3) Mult"
+	echo "4) Div"
+	echo "5) Factorial"
+	echo "6) Exit"
+	echo "\n\nEnter your choice : "
+	read ch
+	case $ch in
+	 	1) add		;;
+	 	2) sub		;;
+	 	3) mult		;;
+	 	4) div		;;
+	 	5) fact		;;
+	 	6) echo "Exit" ;;
+		7) echo "Invalid choice." ;;
+	esac
+done

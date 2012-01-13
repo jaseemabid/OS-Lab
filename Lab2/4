@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# Calculator
+# Author : Jaseem Abid <jaseemabid@gmail.com>
+
+function add()
+{
+	echo "Enter the numbers to be added : "
+	read a
+	read b
+	let "s=$a+$b"
+	echo " "
+	echo "$a + $b =  $s"
+}
+function sub()
+{
+	echo "Enter the numbers to be subtracted : "
+	read a
+	read b
+	let "s=$a-$b"
+	echo " "
+	echo "$a - $b = $s"
+}
+function mul()
+{
+	echo "Enter the numbers to be multiplied : "
+	read a
+	read b
+	let "s=$a*$b"
+	echo " "
+	echo "$a * $b = $s"
+}
+function div()
+{
+	echo "Enter the numbers to be divided : "
+	read a
+	read b
+	if [ $b -ne 0 ]; then
+	let "s=$a/$b"
+	let "r=$a%$b"
+	echo " "
+	echo "$a / $b = $s $r/$b"
+	else
+	echo "Cannot divide by zero"
+	fi
+}
+
+echo -e "\n\nCalculator\n"
+ch=0
+while [ "$ch" -ne 5 ];
+do
+	echo "Enter 1 - 5"
+	echo "1) Add"
+	echo "2) Sub"
+	echo "3) Mult"
+	echo "4) Div"
+	echo "5) Exit"
+	echo "\n\nEnter your choice : "
+	read ch
+	case $ch in
+		1) add		;;
+		2) sub		;;
+		3) mult		;;
+		4) div		;;
+		5) echo "Exit" ;;
+		6) echo "Invalid choice." ;;
+	esac
+done

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#	To read a word and a file name from command line and
+#	delete the occurrences of the word in the file.
+
+# Author : Jaseem Abid <jaseemabid@gmail.com>
+
+old_pattern=$1
+new_pattern=''
+
+if [ -f "$2" ]
+then file_name=$2
+else echo "File \"$2\" does not exist."
+fi
+
+sed -e "s/$old_pattern/$new_pattern/g" $file_name > temp
+mv temp $file_name
