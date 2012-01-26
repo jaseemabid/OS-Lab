@@ -1,0 +1,25 @@
+OS LAB - Assignment set 3
+-------------------------
+
+1) Write a program to implement cp command in linux using open, read, write system calls [source & dest file names should be taken thru command line]
+2) Write a program to print the system statics system uptime(hour, minute, second), total ram space, free ram space, process count, page size , size of user memory using sysinfo stub function.
+3) Implement "ls -l" command using stat system call (file name will be read through command line)
+4) Write a program to print version number of your Linux OS and further hardware details ie. sysname, release, version, processor using Uname system call.
+5) Implement du(disk usage) command using fstat system call.
+6) Implement ls|sort command using pipe() system call
+7) Implement ls command (for directory) using opendir,reader system calls.   do this using scandir and see the difference
+
+
+Modification question
+---------------------
+
+Implement a command 'sv' for save.
+But it will not override something that appears to be more up to date.
+
+	sv filename directory
+
+
+Modif Modif
+---------------------
+
+	sv directory directory :(
